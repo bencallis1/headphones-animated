@@ -11,20 +11,48 @@
 // Check out the methods and properties of the DOM Api for the document  http://www.w3schools.com/jsref/dom_obj_document.asp
 // Here are more examples of properties and methods available to elements http://www.w3schools.com/jsref/dom_obj_all.asp
 
-$( document ).ready(function() {
-   $('#menu').click(function(){
-       $('.menu-overlay').toggleClass('hide-menu');
 
-   });
+$(document).ready(function() {
+
+    // jQuery Example
+
+    //var sideOut =   $('.side-slideout');
+    //    sideOut.hide();
+
+    //$('#menu').click(function(){
+    //    var isShown =  sideOut.is(':visible');
+    //   if(isShown ){
+    //       sideOut.hide(300)
+    //   }else {
+    //       sideOut.show(300)
+    //   }
+    //});
+
+    // Pure Javascript
+
+    var slideOutMenu = document.querySelector('.side-slideout'),
+        menuButton = document.getElementById('menu');
+
+    function showMenu() {
+         slideOutMenu.classList.add('showMenu');
+         slideOutMenu.classList.remove('hideMenu');
+         slideOutMenu.classList.remove('hideDefault');
+
+    }
+
+    function hideMenu(){
+        slideOutMenu.classList.add('hideMenu');
+        slideOutMenu.classList.remove('showMenu');
+        slideOutMenu.classList.add('hideDefault');
+    }
+
+    menuButton.addEventListener('click', function(){
+        var isMenuShown = slideOutMenu.classList.contains('showMenu');
+            if(isMenuShown) hideMenu();
+            if(!isMenuShown) showMenu();
+
+    })
 
 
-    //var theMenu = document.getElementById('menu'),
-    //    overLay = document.getElementById('someother'),
-    //    menu = document.getElementById('menu').style;
-    //
-    //theMenu.addEventListener('click', function(){
-    //    menu.height = '200px';
-    //    menu.background = "#ccc";
-    //})
 
 });

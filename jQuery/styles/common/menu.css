@@ -1,22 +1,90 @@
-.menu-overlay {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
+.side-slideout {
+    height: 100vh;
+    width: 50%;
     background: #ccc;
+    position: absolute;
     z-index: 10;
+}
+
+.hideDefault {
+    opacity: 0;
+}
+
+/* Here we are creating a class to show the menu we have a animation property that is pointing to
+the keyFrames below*/
+
+.showMenu {
+    animation: showingMenu 1s;
+    background: #ccc;
+    transform: skew(-14deg);
+    width: 400px;
+    left: -187px;
+}
+
+.hideMenu {
+    animation: hidingMenu 1s ;
+}
+
+.side-slideout ul {
+    width: 100%;
+    text-align: right;
+}
+
+.side-slideout ul li{
+    height: 50px;
+    background: rgba(215,215,215,0.8);
+    margin-bottom: 20px;
+    padding-right: 200px;
+    padding-top: 20px;
+    font-size: 22px;
 
 }
 
-.hide-menu {
-   opacity: 0;
+.side-slideout ul li:nth-child(2){
+    padding-right: 177px;
 }
 
-.show-menu {
-    opacity: 1;
+.side-slideout ul li:nth-child(3){
+    padding-right: 164px;
+}
+.side-slideout ul li:nth-child(4){
+    padding-right: 150px;
 }
 
-#someother {
-    height:auto;
+
+@keyframes showingMenu {
+     0%   {
+         opacity: 0;
+         transform: skew(0);
+         left: -187px;
+     }
+     50% {
+         background: #000;
+     }
+
+     75%  {
+        background: lightblue;
+     }
+
+     100% {
+         opacity: 1;
+         background: #ccc;
+         transform: skew(-14deg);
+         left: -187px;
+     }
+ }
+
+@keyframes hidingMenu {
+    0%   {
+        opacity: 1;
+        transform: skew(-14deg);
+        left: -187px;
+    }
+    100% {
+        opacity: 0;
+        transform: skew(0);
+        left: -387px;
+    }
+
 }
+
