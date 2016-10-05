@@ -52,6 +52,8 @@ the keyFrames below*/
 }
 
 
+/*Custom Css animations*/
+
 @keyframes showingMenu {
      0%   {
          opacity: 0;
